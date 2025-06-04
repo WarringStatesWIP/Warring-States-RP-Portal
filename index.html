@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RP System Access Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      text-align: center;
+      padding-top: 50px;
+    }
+    .card {
+      background: #1e1e1e;
+      padding: 2rem;
+      margin: auto;
+      max-width: 400px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    button {
+      background: #7289da;
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #accessContent {
+      margin-top: 2rem;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>RP System Access Portal</h1>
+    <p>Only members of our Discord server with the <strong>Role Player</strong> role may access our proprietary RP system documents.</p>
+    <button onclick="loginWithDiscord()">Login with Discord</button>
+    <div id="accessContent">
+      <p>✅ Access granted! <a id="secureLink" href="#" target="_blank">Click here to view the RP system</a></p>
+    </div>
+  </div>
 
+  <script>
+    async function loginWithDiscord() {
+      // Redirect to your serverless backend that handles Discord OAuth
+      window.location.href = "https://your-backend-endpoint.com/auth/discord";
+    }
+
+    // This part should be filled in after login redirect with role check result
+    // Example: after successful login, backend redirects to this page with a token
+    // You’ll use that token to fetch whether user has access
+
+    // Placeholder for showing access after login (replace with real token logic)
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("access") === "granted") {
+      document.getElementById("accessContent").style.display = "block";
+      document.getElementById("secureLink").href = "https://your-firebase-site.web.app/rp-system.pdf";
+    }
+  </script>
+</body>
+</html>
