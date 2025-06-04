@@ -55,15 +55,10 @@
 
   <script>
     async function loginWithDiscord() {
-      // Redirect to your serverless backend that handles Discord OAuth
-      window.location.href = "https://your-backend-endpoint.com/auth/discord";
+      // Redirect to your live Replit backend
+      window.location.href = "https://warringstateswip.repl.co/auth/discord";
     }
 
-    // This part should be filled in after login redirect with role check result
-    // Example: after successful login, backend redirects to this page with a token
-    // You’ll use that token to fetch whether user has access
-
-    // Placeholder for showing access after login (replace with real token logic)
     const params = new URLSearchParams(window.location.search);
     if (params.get("access") === "granted") {
       document.getElementById("accessContent").style.display = "block";
